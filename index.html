@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="./assets/CSS/reset.css">
+    <link rel="stylesheet" href="./assets/CSS/style.css">
+
+    <title>Test 2</title>
+
+
+
+
+</head>
+
+<body>
+
+
+    <div id="wrapper">
+
+
+        <header>
+
+            <img id="logo" src="./assets/images/logo.png" alt="logo">
+
+            <nav id="nav">
+                <ul id="navUl">
+                    <li class="navLi"><a class="navA" rel="noopener noreferrer" href="#allRecepies">Всички рецепти</a>
+                    </li>
+                    <li class="navLi"><a class="navA" rel="noopener noreferrer" href="#favRecepies">Любими рецепти</a>
+                    </li>
+                    <li class="navLi"><a class="navA" rel="noopener noreferrer" href="#createRecepie">Създай рецепта</a>
+                    </li>
+                    <li class="navLi"><a class="navA" rel="noopener noreferrer" href="#myProfile">Моят Профил</a></li>
+                </ul>
+            </nav>
+
+            <img id="profilePic" src="./assets/images/guest.png" alt="profilePic">
+
+        </header>
+
+        <div id="searchDiv">
+            <label for="selectEl">Filter by ingredient</label>
+            <select name="" id="selectEl"></select>
+
+            <label for="searchNameInput">Search by name</label>
+            <input type="text" id="searchNameInput">
+        </div>
+
+        <div id="allRecepies">
+
+            <!-- <div class="recepie">
+
+                <a class="recLink" href="http://allrecipes.com/Recipe/Cinnamon-Rolls-II/Detail.aspx">
+                    <img class="recImg" src="http://img.recipepuppy.com/25.jpg" alt="">
+                </a>
+
+                <h2 class="recTitle">Cinnamon Rolls II</h2>
+
+                <p class="recIngredients">butter, butter, butter, cinnamon, powdered sugar, eggs, flour, milk</p>
+
+                <div class="recButtonsDiv">
+                    <button class="recBtn">Добави в любими</button>
+                    <button class="recBtn">Сготви</button>
+                </div>
+            </div> -->
+
+
+
+        </div>
+
+        <div id="favRecepies">
+
+
+            <!-- <div class="recepie">
+                <a class="recLink" href="https://www.simplyrecipes.com/recipes/rhubarb_orange_meringue_pie/"><img
+                        class="recImg"
+                        src="https://www.simplyrecipes.com/thmb/PcxMVlezOtCSVxASILZr8YYbxB8=/720x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/Simply-Recipes-Perfect-Pie-Crust-LEAD-14-51d8f1c8f13246cf8a5bae8f2d5afbbe.jpg"></a>
+                <h2 class="recTitle">Rhubarb Meringue Pie</h2>
+                <div class="recIngredients">all purpose flour, plus extra for rolling, unsalted butter, teaspoon salt,
+                    teaspoon sugar, tablespoons ice water</div>
+                <div class="recButtonsDiv"><button class="recBtn">Добави в любими</button><button
+                        class="recBtn">Сготви</button></div>
+            </div> -->
+
+
+        </div>
+
+        <div id="createRecepie">
+
+            <form action="#" id="createRecForm">
+                <label for="newRecTitle">Recepie title:</label>
+                <input type="text" name="newRecTitle" id="newRecTitle" class="newRecInput">
+
+                <label for="linkToSimilarRec">Link to similar recepie:</label>
+                <input type="text" name="" id="linkToSimilarRec" class="newRecInput">
+
+                <label for="newRecIngredients">Ingredients:</label>
+                <textarea name="newRecIngredients" id="newRecIngredients" cols="30" rows="10" class="newRecInput"
+                    placeholder="Type the Ingredients here, separated by comma, otherwise you'll make me have to do more work...."></textarea>
+
+                <label for="newRecImgUrl">Recepie picture url:</label>
+                <input type="text" id="newRecImgUrl" class="newRecInput">
+
+                <button type="submit" id="addRecepieBtn">Add recepie</button>
+            </form>
+
+
+        </div>
+
+        <div id="myProfile">
+
+            <form action="#">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="name">
+                <label for="userAge">Age:</label>
+                <input type="number" id="userAge" name="age">
+                <label for="userAddress">User address:</label>
+                <input type="text" name="address" id="userAddress">
+                <label for="userImage">Profile picture url:</label>
+                <input type="text" id="profileImage" name="userImage">
+                <button id="profileSubmitBtn">Change info</button>
+            </form>
+
+            <div id="alertDiv">You have to fill all inputs!</div>
+
+            <table id="coockedRecepiesTable">
+                <tr>
+                    <th>Recepie</th>
+                    <th>Times coocked</th>
+                </tr>
+            </table>
+
+        </div>
+
+        <div id="errorPage">
+
+            <img id="sadFaceImg" src="./assets/images/sadFace.png" alt="sadFace">
+            <h1 id="errorH1">Error 404</h1>
+            <h2 id="errorH2">Page not found</h2>
+            <h3 id="errorH3">Redirecting to home after <span id="timeEl"></span> seconds</h3>
+
+        </div>
+
+
+        <footer>
+            <p>Website created by: Krasimir Stoev.</p>
+            <p>All rights reserved &copy; 2022</p>
+        </footer>
+
+
+    </div>
+
+
+
+
+
+
+
+    <script id="recepie-template" type="text/x-handlebars-template">
+
+        <div class="recepie">
+
+                <a class="recLink" href="{{href}}">
+                    <img class="recImg" src="{{thumbnail}}" alt="">
+                </a>
+
+                <h2 class="recTitle">{{title}}</h2>
+
+                <p class="recIngredients">{{ingredients}}</p>
+
+                <div class="recButtonsDiv">
+                    {{#if isLiked}}
+                    <button data-id="{{id}}" class="recBtn addFavBtn">Премахни от любими</button>
+                    {{else}}
+                    <button data-id="{{id}}" class="recBtn addFavBtn">Добави в любими</button>
+                    {{/if}}
+                    <button data-id="{{id}}" class="recBtn cookBtn">Сготви</button>
+                </div>
+                
+            </div>
+
+    </script>
+
+
+
+    <script src="./node_modules/handlebars/dist/handlebars.min.js"></script>
+
+    <script src="./assets/JS/recepies.js"></script>
+    <script src="./assets/js/user.js"></script>
+    <script src="./assets/js/recepie.js"></script>
+    <script src="./assets/js/recepiesManager.js"></script>
+
+    <script src="./assets/JS/index.js"></script>
+</body>
+
+</html>
