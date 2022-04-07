@@ -1,17 +1,17 @@
 class User {
 
-    constructor() {
-        this.name = "John Doe";
-        this.age = 30;
-        this.address = "USA, New York, Nowhere str. 10";
-        this.img = "";
+    constructor(name, age, address, img) {
+        this.name = name;
+        this.age = age;
+        this.address = address;
+        this.img = img;
         this.favoriteRecepies = [];
         this.coockedRecepies = {};
     }
 
     addToFavorites(recepie) {
-        if (this.favoriteRecepies.indexOf(recepie) === -1) { //ако не се съдържа
-            this.favoriteRecepies.push(recepie);
+        if (!this.favoriteRecepies.some(rece => rece.id === recepie.id)) { //ако не се съдържа
+            this.favoriteRecepies.push(recepie); //добави я в любими
         }
     }
 
@@ -25,16 +25,12 @@ class User {
     }
 
     addToCookedRecepies(recepie) {
-        //this.cookedRecepies e обект
-        if (this.coockedRecepies[recepie.title]) {
+        //*this.cookedRecepies e обект
+        if (this.coockedRecepies[recepie.title]) { //ако резептата е готвена поне веднъж, увеличи стойноста 
             this.coockedRecepies[recepie.title]++;
         } else {
-            this.coockedRecepies[recepie.title] = 1;
+            this.coockedRecepies[recepie.title] = 1; //ако резептата досега не е готвена, създай такова пръпрти със стойност 1
         }
     }
-
-
-
-
 
 }
