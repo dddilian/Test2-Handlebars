@@ -6,14 +6,14 @@ let recepiesManager = (function () {
             this.allRecepies = [];
 
             if (!localStorage.getItem("recepies")) { //ако няма рецепти в localStorage, вземи базовите и ги набутай в localStorage
-                let baseRecepies = [];
+                let defaultRecepies = [];
 
                 recepies.forEach(recepie => {
                     let newRecepie = new Recepie(...Object.values(recepie), this.nextId());
-                    baseRecepies.push(newRecepie);
+                    defaultRecepies.push(newRecepie);
                 });
 
-                localStorage.setItem("recepies", JSON.stringify(baseRecepies));
+                localStorage.setItem("recepies", JSON.stringify(defaultRecepies));
             }
 
             this.allRecepies = JSON.parse(localStorage.getItem("recepies"));
